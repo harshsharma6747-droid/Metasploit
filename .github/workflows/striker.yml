@@ -1,0 +1,20 @@
+name: 🔱 G-GHOST ETERNAL STRIKER
+
+on:
+  schedule:
+    - cron: '*/10 * * * *' # हर 10 मिनट में अपने आप चलेगा
+  workflow_dispatch:      # मैन्युअल बटन से चलाने के लिए
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Chronos Engine
+        run: node striker.js
